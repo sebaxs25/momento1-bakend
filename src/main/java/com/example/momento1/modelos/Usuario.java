@@ -8,18 +8,18 @@ import jakarta.persistence.*;
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idusuario")
+    @Column(name = "id_usuario")
     private Integer IdUsuario;
 
-    @Column(name="nombre", nullable = false, length = 100)
+    @Column(name="nombre", nullable = false, length = 100, unique = false)
     private String Nombre;
-    @Column (name= "correoelectronico", unique = true, nullable = false, length = 150)
+    @Column (name= "correo_electronico", unique = true, nullable = false, length = 150)
     private String CorreoElectronico;
     @Column(name = "contrasena", nullable = false, length = 255)
     private String Contraseña;
     @Column (name ="telefono",nullable = false, length = 20 )
     private Integer Telefono;
-    @Column (name = "tipousuario", nullable = false)
+    @Column (name = "tipo_usuario", nullable = false)
     private TipoUsuario tipoUsuario;
 
 
@@ -83,3 +83,4 @@ public class Usuario {
         this.tipoUsuario = tipoUsuario;
     }
 }
+
