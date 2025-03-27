@@ -6,13 +6,13 @@ import java.sql.Date;
 public class Estudiante {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    @Column (name= "idestudiante")
+    @Column (name= "id_estudiante")
     private Integer IdEstudiante;
-    @Column (name ="idusuario")
+    @Column (name ="id_usuario")
     private Integer IdUsuario;
     @Column (name = "grado", nullable = false)
     private Integer Grado;
-    @Column (name = "fechanacimento", nullable = false)
+    @Column (name = "fecha_nacimento", nullable = false)
     private Date FechaNacimiento;
     @Column (name = "direccion", nullable = false, length = 255)
     private String direccion;
@@ -69,8 +69,6 @@ public class Estudiante {
         this.direccion = direccion;
     }
 }
-
-
 
 
 
