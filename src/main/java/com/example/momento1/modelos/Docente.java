@@ -1,17 +1,27 @@
 package com.example.momento1.modelos;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+
+import java.util.List;
+
 @Entity
 @Table (name ="docente")
 public class Docente {
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    @Column (name = "iddocente")
+    @Column (name = "id_docente")
     private Integer IdDocente;
-    @Column (name = "idusuario")
+    @Column (name = "id_usuario")
    private Integer IdUsuario;
      @Column (name= "espacialidad", nullable = false, length = 100)
    private String Especialidad;
+
+     // CREANDO RELACION 1 A MUCHOS
+     @OneToMany (mappedBy = "docente")
+     @JsonManagedReference
+     private List<Curso> curso;
+
 
     public Docente() {
     }
@@ -46,3 +56,4 @@ public class Docente {
         Especialidad = especialidad;
     }
 }
+
