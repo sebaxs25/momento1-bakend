@@ -1,19 +1,26 @@
 package com.example.momento1.modelos;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 @Entity
 @Table (name ="curso")
 public class Curso {
      @Id
      @GeneratedValue (strategy = GenerationType.IDENTITY)
-     @Column (name = "idcurso")
+     @Column (name = "id_curso")
     private Integer IdCurso;
-     @Column (name = "nombre", nullable = false, length = 100)
+     @Column (name = "nombre", nullable = false, length = 100, unique = false)
     private String Nombre;
-     @Column ( name = "iddocente")
+     @Column ( name = "id_docente")
     private Integer IdDoncete;
 
-    public Curso() {
 
+     // creando relacion de muchos a 1
+    @ManyToOne
+    @JoinColumn(name = "fk_docente", referencedColumnName = "id_docente")
+    @JsonBackReference
+    private Docente docente;
+
+    public Curso() {
     }
 
     public Curso(Integer idCurso, String nombre, Integer idDoncete) {
