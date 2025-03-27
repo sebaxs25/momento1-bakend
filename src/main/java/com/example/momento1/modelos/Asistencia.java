@@ -8,11 +8,11 @@ import java.sql.Date;
 public class Asistencia {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column (name = "idasistencia")
+    @Column (name = "id_asistencia")
     private Integer IdAsistencia;
-    @Column (name= "idestudiante")
+    @Column (name= "id_estudiante")
     private Integer IdEstudiante;
-    @Column (name = "idcurso")
+    @Column (name = "id_curso")
     private Integer IdCurso;
     @Column (name ="fecha", nullable = false)
     private Date fecha;
