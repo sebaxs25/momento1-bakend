@@ -6,15 +6,15 @@ import java.sql.Date;
 public class Calificacion {
      @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    @Column (name = "idcalificacion")
+    @Column (name = "id_calificacion")
     private Integer IdCalificacion;
-    @Column (name = "idestudiante")
+    @Column (name = "id_estudiante")
     private Integer IdEstudiante;
-    @Column (name = "idmateria")
+    @Column (name = "id_materia")
     private Integer IdMateria;
     @Column (name = "nota", nullable = false, scale = 2, precision = 5 )
     private Integer  Nota;
-    @Column (name= "fechaevaluacion", nullable = false)
+    @Column (name= "fecha_evaluacion", nullable = false)
     private Date FechaEvaluacion;
 
     public Calificacion() {
