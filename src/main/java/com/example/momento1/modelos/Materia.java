@@ -5,12 +5,14 @@ import jakarta.persistence.*;
 public class Materia {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    @Column (name = "idmateria")
+    @Column (name = "id_materia")
     private Integer IdMateria;
-    @Column (name = "nombre", nullable = false, length = 100 )
+    @Column (name = "nombre", nullable = false, length = 100)
     private String Nombre;
-    @Column (name = "idcurso")
+    @Column (name = "id_curso")
     private Integer IdCurso;
+
+
 
     public Materia() {
 
@@ -46,3 +48,4 @@ public class Materia {
         IdCurso = idCurso;
     }
 }
+
