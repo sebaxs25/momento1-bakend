@@ -32,6 +32,10 @@ public class Curso {
     @JsonManagedReference
     private List<Materia> materia;
 
+    @OneToMany (mappedBy = "curso")
+    @JsonManagedReference
+    private List <Asistencia> asistencia;
+
 
     public Curso() {
     }

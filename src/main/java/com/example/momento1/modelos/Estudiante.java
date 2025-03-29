@@ -28,6 +28,10 @@ public class Estudiante {
     @JsonManagedReference
     private List<Calificacion> calificacion;
 
+    @OneToMany(mappedBy = "estudiante")
+    @JsonManagedReference
+    private List <Asistencia> asistencia;
+
     public Estudiante() {
 
     }

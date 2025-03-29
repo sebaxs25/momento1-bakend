@@ -1,4 +1,5 @@
 package com.example.momento1.modelos;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.sql.Date;
@@ -18,6 +19,17 @@ public class Asistencia {
     private Date fecha;
     @Column (name = "estado", nullable = false)
     private String Estado;
+
+    @ManyToOne
+    @JoinColumn (name = "fk_estudiante", referencedColumnName = "id_estudiante")
+    @JsonBackReference
+    private Estudiante estudiante;
+
+    @ManyToOne
+    @JoinColumn (name= "fk_curso", referencedColumnName = "id_curso")
+    @JsonBackReference
+    private Curso curso;
+
 
     public Asistencia() {
 
