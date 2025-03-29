@@ -1,6 +1,9 @@
 package com.example.momento1.modelos;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import java.sql.Date;
+import java.util.List;
+
 @Entity
 @Table (name = "estudiante")
 public class Estudiante {
@@ -16,6 +19,14 @@ public class Estudiante {
     private Date FechaNacimiento;
     @Column (name = "direccion", nullable = false, length = 255)
     private String direccion;
+
+    @OneToOne (mappedBy ="estudiante" )
+    @JsonManagedReference
+    private Inscripcion inscripcion;
+
+    @OneToMany (mappedBy = "estudiante")
+    @JsonManagedReference
+    private List<Calificacion> calificacion;
 
     public Estudiante() {
 

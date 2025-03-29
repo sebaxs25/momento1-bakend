@@ -1,6 +1,10 @@
 package com.example.momento1.modelos;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+
+import java.util.List;
+
 @Entity
 @Table (name ="curso")
 public class Curso {
@@ -19,6 +23,15 @@ public class Curso {
     @JoinColumn(name = "fk_docente", referencedColumnName = "id_docente")
     @JsonBackReference
     private Docente docente;
+
+    @OneToOne (mappedBy = "curso")
+    @JsonManagedReference
+    private Inscripcion inscripcion;
+
+    @OneToMany (mappedBy = "curso")
+    @JsonManagedReference
+    private List<Materia> materia;
+
 
     public Curso() {
     }
