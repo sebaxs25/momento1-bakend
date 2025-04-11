@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import java.sql.Date;
 @Entity
 @Table (name ="calificacion")
-public class Calificacion {
+public class  Calificacion {
      @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Column (name = "id_calificacion")
