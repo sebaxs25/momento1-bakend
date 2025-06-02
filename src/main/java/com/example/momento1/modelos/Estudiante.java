@@ -8,37 +8,40 @@ import java.util.List;
 @Table (name = "estudiante")
 public class Estudiante {
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
-    @Column (name= "id_estudiante")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_estudiante")
     private Integer IdEstudiante;
-    @Column (name ="id_usuario")
-    private Integer IdUsuario;
-    @Column (name = "grado", nullable = false)
+    @OneToOne
+    @JoinColumn(name = "fk_usuario", referencedColumnName = "id_usuario", nullable = false)
+    @JsonManagedReference(value = "estudiante-usuario")
+    private Usuario usuario;
+    @Column(name = "grado", nullable = false)
     private Integer Grado;
-    @Column (name = "fecha_nacimento", nullable = false)
+    @Column(name = "fecha_nacimento", nullable = false)
     private Date FechaNacimiento;
-    @Column (name = "direccion", nullable = false, length = 255)
+    @Column(name = "direccion", nullable = false, length = 255)
     private String direccion;
 
-    @OneToOne (mappedBy ="estudiante" )
+
+    @OneToOne(mappedBy = "estudiante")
     @JsonManagedReference
     private Inscripcion inscripcion;
 
-    @OneToMany (mappedBy = "estudiante")
+    @OneToMany(mappedBy = "estudiante")
     @JsonManagedReference
     private List<Calificacion> calificacion;
 
     @OneToMany(mappedBy = "estudiante")
     @JsonManagedReference
-    private List <Asistencia> asistencia;
+    private List<Asistencia> asistencia;
 
     public Estudiante() {
 
     }
 
-    public Estudiante(Integer idEstudiante, Integer idUsuario, Integer grado, Date fechaNacimiento, String direccion) {
+    public Estudiante(Integer idEstudiante, Usuario usuario, Integer grado, Date fechaNacimiento, String direccion) {
         IdEstudiante = idEstudiante;
-        IdUsuario = idUsuario;
+        this.usuario = usuario;
         Grado = grado;
         FechaNacimiento = fechaNacimiento;
         this.direccion = direccion;
@@ -52,12 +55,12 @@ public class Estudiante {
         IdEstudiante = idEstudiante;
     }
 
-    public Integer getIdUsuario() {
-        return IdUsuario;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setIdUsuario(Integer idUsuario) {
-        IdUsuario = idUsuario;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     public Integer getGrado() {

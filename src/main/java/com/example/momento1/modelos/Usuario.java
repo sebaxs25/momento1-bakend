@@ -1,6 +1,7 @@
 package com.example.momento1.modelos;
 
 import com.example.momento1.palabras.TipoUsuario;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -19,8 +20,14 @@ public class Usuario {
     private String Contraseña;
     @Column (name ="telefono",nullable = false, length = 20 )
     private Integer Telefono;
-    @Column (name = "tipo_usuario", nullable = false)
+    @Enumerated (EnumType.STRING)
     private TipoUsuario tipoUsuario;
+    @OneToOne(mappedBy = "usuario")
+    @JsonBackReference (value = "docente-usuario")
+    private Docente docente;
+    @OneToOne (mappedBy = "usuario")
+    @JsonBackReference (value = "estudiante-usuario")
+    private Estudiante estudiante;
 
 
     public Usuario() {

@@ -12,10 +12,12 @@ public class Docente {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Column (name = "id_docente")
     private Integer IdDocente;
-    @Column (name = "id_usuario")
-   private Integer IdUsuario;
-     @Column (name= "espacialidad", nullable = false, length = 100)
-   private String Especialidad;
+    @OneToOne
+    @JoinColumn (name = "fk_usuario", referencedColumnName = "id_usuario")
+    @JsonManagedReference(value ="docente-usuario")
+    private Usuario usuario;
+    @Column (name= "espacialidad", nullable = false, length = 100)
+    private String Especialidad;
 
      // CREANDO RELACION 1 A MUCHOS
      @OneToMany (mappedBy = "docente")
@@ -26,10 +28,10 @@ public class Docente {
     public Docente() {
     }
 
-    public Docente(Integer idDocente, Integer idUsuario, String especialidad) {
-        IdDocente = idDocente;
-        IdUsuario = idUsuario;
+    public Docente(String especialidad, Usuario usuario, Integer idDocente) {
         Especialidad = especialidad;
+        this.usuario = usuario;
+        IdDocente = idDocente;
     }
 
     public Integer getIdDocente() {
@@ -40,12 +42,12 @@ public class Docente {
         IdDocente = idDocente;
     }
 
-    public Integer getIdUsuario() {
-        return IdUsuario;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setIdUsuario(Integer idUsuario) {
-        IdUsuario = idUsuario;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     public String getEspecialidad() {

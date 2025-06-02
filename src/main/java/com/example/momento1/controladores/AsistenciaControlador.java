@@ -17,11 +17,11 @@ public class AsistenciaControlador {
 
     //guardar
     @PostMapping
-    public ResponseEntity<?>guardarAsistencia(@RequestBody Asistencia datosAsistenia){
+    public ResponseEntity<?>guardarAsistencia(@RequestBody Asistencia datosAsistencia){
         try{
             return ResponseEntity
                     .status(HttpStatus.CREATED)
-                    .body(this.servicio.guardarAsistencia(datosAsistenia));
+                    .body(this.servicio.guardarAsistencia(datosAsistencia));
         } catch (Exception error) {
             return ResponseEntity
                     .status(HttpStatus.BAD_REQUEST)
