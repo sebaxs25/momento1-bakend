@@ -1,6 +1,7 @@
 package com.example.momento1.controladores;
 
 import com.example.momento1.modelos.Curso;
+import com.example.momento1.servicios.CursoServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class CursoControlador {
     @Autowired
-    CursoControlador servicio;
+    CursoServicio servicio;
 
     @PostMapping
     public ResponseEntity<?> guardarCurso(@RequestBody Curso datosNuevos) {

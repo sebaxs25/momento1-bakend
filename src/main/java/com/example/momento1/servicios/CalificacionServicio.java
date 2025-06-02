@@ -13,7 +13,7 @@ import java.util.Optional;
 public class CalificacionServicio {
     @Autowired
     ICalificacionRepositorio repositorio;
-    public Calificacion guardaCalificacion (Calificacion datosCalificacion)throws Exception{
+    public Calificacion guardarCalificacion (Calificacion datosCalificacion)throws Exception{
         try{
             return this.repositorio.save(datosCalificacion);
         } catch (Exception Error) {

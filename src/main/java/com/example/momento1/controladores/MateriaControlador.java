@@ -1,6 +1,7 @@
 package com.example.momento1.controladores;
 
 import com.example.momento1.modelos.Materia;
+import com.example.momento1.servicios.MateriaServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class MateriaControlador {
     @Autowired
-    MateriaControlador servicio;
+    MateriaServicio servicio;
     @PostMapping
     public ResponseEntity<?>guardarMateria (@RequestBody Materia datosNuevos){
         try{

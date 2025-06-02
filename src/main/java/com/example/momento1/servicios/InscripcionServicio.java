@@ -13,7 +13,7 @@ import java.util.Optional;
 public class InscripcionServicio {
     @Autowired
     IInscripcionRepositorio repositorio;
-    public Inscripcion guardarIncripcion (Inscripcion datosIncripcion) throws Exception {
+    public Inscripcion guardarInscripcion (Inscripcion datosIncripcion) throws Exception {
         try {
                 return this.repositorio.save(datosIncripcion);
         }catch (Exception Error){

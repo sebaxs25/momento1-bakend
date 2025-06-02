@@ -1,6 +1,7 @@
 package com.example.momento1.controladores;
 
 import com.example.momento1.modelos.Asistencia;
+import com.example.momento1.servicios.AsistenciasServicio;
 import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class AsistenciaControlador {
     @Autowired
-    AsistenciaControlador servicio;
+    AsistenciasServicio servicio;
 
     //guardar
     @PostMapping

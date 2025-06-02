@@ -1,6 +1,7 @@
 package com.example.momento1.controladores;
 
 import com.example.momento1.modelos.Usuario;
+import com.example.momento1.servicios.UsuarioServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UsuarioControlador {
     @Autowired
-    UsuarioControlador servicio;
+    UsuarioServicio servicio;
     @PostMapping
     public ResponseEntity<?> guardarUsuario(@RequestBody Usuario datosNuevos){
         try{
